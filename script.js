@@ -1,11 +1,8 @@
 let computerChoice;
-let randomNumber;
-let humanScore = 0;
-let computerScore = 0;
-
 //Function to get computer choice
 
 function getComputerChoice () {
+    let randomNumber;
     randomNumber = Math.random();
     
     if (randomNumber <= 0.33) {
@@ -37,60 +34,78 @@ function playRound (humanChoice, computerChoice) {
     if (humanChoice === 'rock') {
         if (computerChoice == humanChoice) {
             console.log(`Computer also chose ${computerChoice}: Tie!`);
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            
+            return 'tie';
         }
         else if (computerChoice === 'paper') {
-            computerScore += 1; 
             console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            
+            return 'computer';
         }
         else {
-            humanScore += 1;
             console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            
+            return 'human';
         }
     }
 
     if (humanChoice === 'paper') {
         if (computerChoice == humanChoice) {
             console.log(`Computer also chose ${computerChoice}: Tie!`);
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            return 'tie';
         }
         else if (computerChoice === 'scissors') {
-            computerScore += 1; 
             console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            return 'computer';
         }
         else {
-            humanScore += 1;
             console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            return 'human';
         }
     }
 
     if (humanChoice === 'scissors') {
         if (computerChoice == humanChoice) {
             console.log(`Computer also chose ${computerChoice}: Tie!`);
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            return 'tie';
         }
         else if (computerChoice === 'rock') {
-            computerScore += 1; 
             console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            return 'computer';
         }
         else {
-            humanScore += 1;
             console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
-            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
+            return 'human';
         }
     }
 }
 
-const humanSelection = gethumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
 function playGame () {
+    let humanScore = 0;
+    let computerScore = 0;
 
+    for (let i = 0; i < 5; i++){
+        let human = gethumanChoice();
+        let computer = getComputerChoice();
+        let result = playRound(human, computer);
+
+        if (result === 'human') {
+            humanScore ++;
+        }
+        else if (result === 'computer'){
+            computerScore ++;
+        }
+    }
+    
+    if (humanScore > computerScore) {
+        console.log(`Your Score: ${humanScore}, Computer Score: ${computerScore}. YIPEE you win!`)
+    }
+    else if (humanScore < computerScore){
+        console.log(`Your Score: ${humanScore}, Computer Score: ${computerScore}. You\'re a LOSER.`)
+    }
+    else {
+        console.log(`Your Score: ${humanScore}, Computer Score: ${computerScore}. It's a draw -____-`)
+    }
 }
+
+playGame();
