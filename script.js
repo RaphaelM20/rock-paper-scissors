@@ -1,5 +1,9 @@
 let computerChoice;
 let randomNumber;
+let humanScore = 0;
+let computerScore = 0;
+
+//Function to get computer choice
 
 function getComputerChoice () {
     randomNumber = Math.random();
@@ -20,47 +24,73 @@ function getComputerChoice () {
     }
 }
 
-getComputerChoice();
+//Function to get human choice
 
-function humanChoice () {
-    let humanChoice = prompt('Your move: ');
-    let humanChoiceLower = humanChoice.toLowerCase();
+function gethumanChoice () {
+    let humanChoice = prompt('Your move: ').toLowerCase();
+    return humanChoice;
+}
 
-    if (humanChoiceLower === 'rock') {
-        if (computerChoice == humanChoiceLower) {
-            console.log(`Computer also chose ${computerChoice}: Tie!`)
+//Function for the rock paper scissors game logic using human and computer choice
+
+function playRound (humanChoice, computerChoice) {
+    if (humanChoice === 'rock') {
+        if (computerChoice == humanChoice) {
+            console.log(`Computer also chose ${computerChoice}: Tie!`);
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
         else if (computerChoice === 'paper') {
-            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Lose!`)
+            computerScore += 1; 
+            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
         else {
-            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Win!`)
+            humanScore += 1;
+            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
     }
 
-    if (humanChoiceLower === 'paper') {
-        if (computerChoice == humanChoiceLower) {
-            console.log(`Computer also chose ${computerChoice}: Tie!`)
+    if (humanChoice === 'paper') {
+        if (computerChoice == humanChoice) {
+            console.log(`Computer also chose ${computerChoice}: Tie!`);
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
         else if (computerChoice === 'scissors') {
-            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Lose!`)
+            computerScore += 1; 
+            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
         else {
-            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Win!`)
+            humanScore += 1;
+            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
     }
 
-    if (humanChoiceLower === 'scissors') {
-        if (computerChoice == humanChoiceLower) {
-            console.log(`Computer also chose ${computerChoice}: Tie!`)
+    if (humanChoice === 'scissors') {
+        if (computerChoice == humanChoice) {
+            console.log(`Computer also chose ${computerChoice}: Tie!`);
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
         else if (computerChoice === 'rock') {
-            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Lose!`)
+            computerScore += 1; 
+            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
         else {
-            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Win!`)
+            humanScore += 1;
+            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
+            console.log(`You: ${humanScore}, Computer: ${computerScore}`);
         }
     }
 }
 
-humanChoice();
+const humanSelection = gethumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+function playGame () {
+
+}
