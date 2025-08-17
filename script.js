@@ -1,9 +1,9 @@
+let computerChoice;
+let randomNumber;
+
 function getComputerChoice () {
-    let randomNumber;
     randomNumber = Math.random();
-
-    let computerChoice;
-
+    
     if (randomNumber <= 0.33) {
         computerChoice = 'rock';
         return computerChoice;
@@ -15,9 +15,52 @@ function getComputerChoice () {
     }
 
     else {
-        computerChoice = 'scisscors';
+        computerChoice = 'scissors';
         return computerChoice;
     }
 }
 
-console.log(getComputerChoice());
+getComputerChoice();
+
+function humanChoice () {
+    let humanChoice = prompt('Your move: ');
+    let humanChoiceLower = humanChoice.toLowerCase();
+
+    if (humanChoiceLower === 'rock') {
+        if (computerChoice == humanChoiceLower) {
+            console.log(`Computer also chose ${computerChoice}: Tie!`)
+        }
+        else if (computerChoice === 'paper') {
+            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Lose!`)
+        }
+        else {
+            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Win!`)
+        }
+    }
+
+    if (humanChoiceLower === 'paper') {
+        if (computerChoice == humanChoiceLower) {
+            console.log(`Computer also chose ${computerChoice}: Tie!`)
+        }
+        else if (computerChoice === 'scissors') {
+            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Lose!`)
+        }
+        else {
+            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Win!`)
+        }
+    }
+
+    if (humanChoiceLower === 'scissors') {
+        if (computerChoice == humanChoiceLower) {
+            console.log(`Computer also chose ${computerChoice}: Tie!`)
+        }
+        else if (computerChoice === 'rock') {
+            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Lose!`)
+        }
+        else {
+            console.log(`You chose ${humanChoiceLower}. Computer chose ${computerChoice}: You Win!`)
+        }
+    }
+}
+
+humanChoice();
