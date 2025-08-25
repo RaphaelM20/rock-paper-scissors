@@ -33,17 +33,17 @@ function gethumanChoice () {
 function playRound (humanChoice, computerChoice) {
     if (humanChoice === 'rock') {
         if (computerChoice == humanChoice) {
-            console.log(`Computer also chose ${computerChoice}: Tie!`);
+            showResult.textContent = `Computer also chose ${computerChoice}: Tie!`;
             
             return 'tie';
         }
         else if (computerChoice === 'paper') {
-            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
+            showResult.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`
             
             return 'computer';
         }
         else {
-            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
+            showResult.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`
             
             return 'human';
         }
@@ -51,35 +51,59 @@ function playRound (humanChoice, computerChoice) {
 
     if (humanChoice === 'paper') {
         if (computerChoice == humanChoice) {
-            console.log(`Computer also chose ${computerChoice}: Tie!`);
+            showResult.textContent = `Computer also chose ${computerChoice}: Tie!`
             return 'tie';
         }
         else if (computerChoice === 'scissors') {
-            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
+            showResult.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`
             return 'computer';
         }
         else {
-            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
+            showResult.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`
             return 'human';
         }
     }
 
     if (humanChoice === 'scissors') {
         if (computerChoice == humanChoice) {
-            console.log(`Computer also chose ${computerChoice}: Tie!`);
+            showResult.textContent = `Computer also chose ${computerChoice}: Tie!`
             return 'tie';
         }
         else if (computerChoice === 'rock') {
-            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`)
+            showResult.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}: You Lose!`
             return 'computer';
         }
         else {
-            console.log(`You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`)
+            showResult.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}: You Win!`
             return 'human';
         }
     }
 }
 
+const showResult = document.querySelector('#result');
+
+const btnRock = document.querySelector('#rock');
+btnRock.addEventListener("click", function(){
+    const humanChoice = 'rock';
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+})
+
+const btnPaper = document.querySelector('#paper');
+btnPaper.addEventListener("click", function(){
+    const humanChoice = 'paper';
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+})
+
+const btnScissors = document.querySelector('#scissors');
+btnScissors.addEventListener("click", function(){
+    const humanChoice = 'scissors';
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+})
+
+/*
 function playGame () {
     let humanScore = 0;
     let computerScore = 0;
@@ -98,14 +122,14 @@ function playGame () {
     }
     
     if (humanScore > computerScore) {
-        console.log(`Your Score: ${humanScore}, Computer Score: ${computerScore}. YIPEE you win!`)
+        showResult.textContent(`Your Score: ${humanScore}, Computer Score: ${computerScore}. YIPEE you win!`)
     }
     else if (humanScore < computerScore){
-        console.log(`Your Score: ${humanScore}, Computer Score: ${computerScore}. You\'re a LOSER.`)
+        showResult.textContent(`Your Score: ${humanScore}, Computer Score: ${computerScore}. You\'re a LOSER.`)
     }
     else {
-        console.log(`Your Score: ${humanScore}, Computer Score: ${computerScore}. It's a draw -____-`)
+        showResult.textContent(`Your Score: ${humanScore}, Computer Score: ${computerScore}. It's a draw -____-`)
     }
 }
 
-playGame();
+playGame();*/
