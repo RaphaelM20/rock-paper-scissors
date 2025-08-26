@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    font-family: 'Orbitron', sans-serif;
+    color: #00f7ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#result {
+    margin-bottom: 40px;
+    padding: 20px;
+    font-size: 22px;
+    border: 2px dashed #00f7ff;
+    border-radius: 12px;
+    min-width: 300px;
+    text-align: center;
+    box-shadow: 0 0 15px #00f7ff;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.button-container button {
+    width: 150px;
+    height: 150px;
+    border: 3px solid cyan;
+    background-color: transparent;
+    border-radius: 12px;
+    box-shadow: 0 0 10px cyan;
+    padding: 0;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.button-container button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 🎯 Image-specific nudging (tweak % or px as needed) */
+#rock img {
+    object-position: -150% center;     /* shift right */
+    transform: translateY(7px);      /* fine-tune */
+}
+
+#paper img {
+    object-position: 250% center;     /* shift left */
+    transform: translateY(7px);     /* fine-tune */
+}
+
+#scissors img {
+    object-position: center center;        /* slight upward shift */
+    transform: translateY(7px);     /* fine-tune */
+}
