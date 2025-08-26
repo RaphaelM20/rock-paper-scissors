@@ -1,4 +1,7 @@
 let computerChoice;
+let humanScore = 0;
+let computerScore = 0;
+
 //Function to get computer choice
 
 function getComputerChoice () {
@@ -82,54 +85,80 @@ function playRound (humanChoice, computerChoice) {
 
 const showResult = document.querySelector('#result');
 
+///////onclick update score
+
 const btnRock = document.querySelector('#rock');
 btnRock.addEventListener("click", function(){
     const humanChoice = 'rock';
     const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    const result = playRound(humanChoice, computerChoice);
+    updateScore(result);
 })
 
 const btnPaper = document.querySelector('#paper');
 btnPaper.addEventListener("click", function(){
     const humanChoice = 'paper';
     const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    const result = playRound(humanChoice, computerChoice);
+    updateScore(result);
 })
 
 const btnScissors = document.querySelector('#scissors');
 btnScissors.addEventListener("click", function(){
     const humanChoice = 'scissors';
     const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    const result = playRound(humanChoice, computerChoice);
+    updateScore(result);
 })
 
-/*
-function playGame () {
-    let humanScore = 0;
-    let computerScore = 0;
+/////display score function
+const scoreboard = document.querySelector('#scoreboard');
+const playAgainBtn = document.querySelector('#play-again-btn');
 
-    for (let i = 0; i < 5; i++){
-        let human = gethumanChoice();
-        let computer = getComputerChoice();
-        let result = playRound(human, computer);
+playAgainBtn.addEventListener("click", function(){
+    humanScore = 0;
+    computerScore = 0;
 
-        if (result === 'human') {
-            humanScore ++;
-        }
-        else if (result === 'computer'){
-            computerScore ++;
-        }
-    }
+    document.getElementById('human-score').textContent = 'You: 0';
+    document.getElementById('computer-scoreboard').textContent = 'Computer: 0';
     
-    if (humanScore > computerScore) {
-        showResult.textContent(`Your Score: ${humanScore}, Computer Score: ${computerScore}. YIPEE you win!`)
+    showResult.textContent = 'Make your move!';
+    playAgainBtn.style.display = 'none';
+
+    setGameButtonsEnabled(true);
+})
+
+function updateScore(result){
+    if (result === 'human'){
+        humanScore += 1;
     }
-    else if (humanScore < computerScore){
-        showResult.textContent(`Your Score: ${humanScore}, Computer Score: ${computerScore}. You\'re a LOSER.`)
+    else if (result === 'computer') {
+        computerScore += 1;
     }
-    else {
-        showResult.textContent(`Your Score: ${humanScore}, Computer Score: ${computerScore}. It's a draw -____-`)
+
+    document.getElementById('human-score').textContent = 'You : ' + humanScore;
+    document.getElementById('computer-scoreboard').textContent = 'Computer: ' + computerScore;
+
+    if (humanScore === 5 || computerScore === 5) {
+        if (humanScore > computerScore) {
+            showResult.textContent = 'YOU WIN!';
+        }
+        else {
+            showResult.textContent = 'YOU LOSE! WOMP WOMP';
+        }
+
+        playAgainBtn.style.display = 'inline-block';
+        setGameButtonsEnabled(false);
     }
 }
 
-playGame();*/
+function setGameButtonsEnabled(enabled) {
+    btnRock.disabled = !enabled;
+    btnPaper.disabled = !enabled;
+    btnScissors.disabled = !enabled;
+
+    const opacity = enabled ? '1' : '0.4';
+    btnRock.style.opacity = opacity;
+    btnPaper.style.opacity = opacity;
+    btnScissors.style.opacity = opacity;
+}

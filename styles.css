@@ -33,17 +33,29 @@ body {
 .button-container button {
     width: 150px;
     height: 150px;
-    border: 3px solid cyan;
     background-color: transparent;
     border-radius: 12px;
-    box-shadow: 0 0 10px cyan;
     padding: 0;
     overflow: hidden;
-
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.button-container #rock {
+    box-shadow: 0 0 10px pink;
+    border: 3px solid pink;
+} 
+
+.button-container #paper {
+    box-shadow: 0 0 10px cyan;
+    border: 3px solid cyan;
+} 
+
+.button-container #scissors {
+    box-shadow: 0 0 10px yellow;
+    border: 3px solid yellow;
+} 
 
 .button-container button:hover {
     transform: scale(1.05);
@@ -71,4 +83,35 @@ body {
 #scissors img {
     object-position: center center;        /* slight upward shift */
     transform: translateY(7px);     /* fine-tune */
+}
+
+#scoreboard {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#human-score {
+    color: #00f7ff;
+}
+
+#computer-scoreboard {
+    color:chartreuse !important;
+}
+
+#play-again-btn {
+  display: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #00f7ff;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+#play-again-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #0ff, 0 0 25px #0ff;
 }
