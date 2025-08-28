@@ -4,31 +4,31 @@ A simple Rock-Paper-Scissors game built with HTML, CSS, and JavaScript. First to
 
 🎮 Features
 
-Click-based gameplay with visual buttons
+- Click-based gameplay with visual buttons
 
-Dynamic scoreboard for both human and computer
+- Dynamic scoreboard for both human and computer
 
-Game ends at 5 points with a final result message
+- Game ends at 5 points with a final result message
 
-"Play Again" button appears only after the game ends
+- Play Again" button appears only after the game ends
 
-Clean neon-styled UI with custom images and fonts
+- Clean neon-styled UI with custom images and fonts
 
-Button states disable automatically when game ends
+- Button states disable automatically when game ends
 
 🧠 How It Works
 
-User clicks one of the three move buttons (Rock, Paper, or Scissors)
+- User clicks one of the three move buttons (Rock, Paper, or Scissors)
 
-A random move is generated for the computer
+- A random move is generated for the computer
 
-Game logic determines the winner of the round
+- Game logic determines the winner of the round
 
-Score is updated and displayed dynamically
+- Score is updated and displayed dynamically
 
-Game ends when a player reaches 5 points
+- Game ends when a player reaches 5 points
 
-A "Play Again" button resets the score and re-enables interaction
+- A "Play Again" button resets the score and re-enables interaction
 
 💻 Tech Stack
 
@@ -40,7 +40,7 @@ JavaScript: Game logic, event handling, DOM manipulation
 
 📸 Preview
 
-<!-- Replace with your actual screenshot filename -->
+<img src="rps-images/preview.png" alt="preview" />
 
 🚀 Getting Started
 
@@ -52,13 +52,3 @@ git clone https://github.com/yourusername/rock-paper-scissors.git
 Open index.html in your browser.
 
 No frameworks, no dependencies. 100% vanilla JS.
-
-✨ Bonus Ideas (To Add Later)
-
-Score history tracker
-
-Sound effects
-
-Animations on win/loss
-
-Dark/light mode toggle
