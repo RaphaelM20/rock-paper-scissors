@@ -40,7 +40,7 @@ JavaScript: Game logic, event handling, DOM manipulation
 
 📸 Preview
 
-<img src="rps-images/preview.png" alt="preview" />
+<img src="rps-images/rps-preview.png" alt="preview" />
 
 🚀 Getting Started
 
