@@ -46,8 +46,7 @@ JavaScript: Game logic, event handling, DOM manipulation
 
 Clone the repo:
 
-git clone https://github.com/yourusername/rock-paper-scissors.git
-
+git clone git clone https://github.com/RaphaelM20/rock-paper-scissors.git
 
 Open index.html in your browser.
 
