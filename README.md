@@ -36,7 +36,7 @@ A simple Rock-Paper-Scissors game built with HTML, CSS, and JavaScript. First to
 
 ## 📸 Preview
 
-<img src="rps-images/preview.png" alt="Game Preview" />
+<img src="rps-images/rps-preview.jpg" alt="Game Preview" />
 
 ---
 
